@@ -60,3 +60,13 @@ Production input parsing, refunds, currency conversion, accounting rules and pay
 The [Calculator Toolkit hairdresser tipping guide](https://calculator-toolkit.com/how-much-to-tip-hairdresser/) provides salon receipt examples and explains questions to ask about service charges and assistants. Use it as context for choosing test inputs, rather than as an arithmetic dependency.
 
 Disclosure: this repository is published by the Calculator Toolkit owner. The example and explanatory text were prepared with AI assistance and checked by executing the assertions. It is not the application's source code and makes no claim about endorsement by GitHub or another publisher.
+
+## Manual UI cross-checks for the rounding examples
+
+The functions in this repository demonstrate money arithmetic; they do not decide what a customer should tip. A useful manual check is to compare one explicitly specified receipt with a browser calculator, keeping the inputs and rounding rule visible.
+
+For a $120.00 service and an 8.25% tax rate, rounded tax is $9.90. At 20%, a before-tax basis gives a $24.00 tip and $153.90 total. An after-tax basis gives a $25.98 tip and $155.88 total. The $1.98 difference comes from changing the basis, not from applying tax twice. Use a single payer, no optional percentage additions and no whole-dollar rounding for these comparisons.
+
+The [Hair Stylist Tip Calculator](https://calculator-toolkit.com/hair-stylist-tip-calculator/) exposes both basis settings. Enter these values there as a manual reference; it is an affiliated project maintained by this repository's author, not an independent correctness oracle or a dependency. Preserve the local expected values in tests. An external UI can change, and disagreement should lead to checking the assumptions rather than replacing the assertions blindly.
+
+This documentation addition was prepared with AI assistance. The example amounts were checked independently with decimal arithmetic. It does not change the repository's code or existing guide reference.
